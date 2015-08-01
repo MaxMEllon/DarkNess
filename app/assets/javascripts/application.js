@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require uikit
+//= require select2
 //= require turbolinks
 //= require_tree .

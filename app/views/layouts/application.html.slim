@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title #{@title} | DarkNess
+    meta charset='utf-8'
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    = stylesheet_link_tag    'application', 'data-turbolinks-track' => true, media: 'all'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+body
+  .uk-modal
+
+  nav.uk-navbar.uk-navbar-attached
+    .uk-container.uk-container-center
+      = link_to root_path, class: 'uk-navbar-brand'
+        span.brand.bold weigery
+
+      ul.uk-navbar-nav.uk-hidden-small
+        li
+          = link_to '#'
+            = fa_icon 'user-md', text: '自分の健康状態'
+
+      .uk-navbar-flip.uk-hidden-small
+        ul.uk-navbar-nav
+          li
+            = link_to new_user_session_path
+              = fa_icon 'sign-in', text: 'ログイン'
+
+- if notice
+  javascript:
+    UIkit.notify({ message: '#{notice}', timeout: 3000 });
+
+- if alert
+  javascript:
+    UIkit.notify({ message: '#{alert}', timeout: 3000, status: 'danger' });
+
