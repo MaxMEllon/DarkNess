@@ -5,7 +5,7 @@
       .uk-width-large-1-2.center
       .uk-width-large-1-2.center
         = image_tag('logo.png')
-      - if user_signed_in?
+      - unless user_signed_in?
         .uk-width-large-1-2
         .uk-width-large-1-2 align="center" = link_to 'Sign up', edit_user_registration_path, class: 'uk-button uk-button-primary uk-button-large'
         .uk-width-large-1-2

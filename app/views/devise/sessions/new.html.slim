@@ -12,10 +12,10 @@
       = form_for resource, as: resource_name, html: { class: 'uk-form uk-form-stacked' }, url: session_path(resource_name) do |f|
         .uk-form-row.uk-form-icon
           i.uk-icon-user
-          = f.text_field :login, autofocus: true, placeholder: 'メールアドレス'
+          = f.text_field :email, autofocus: true, placeholder: 'Mailadress'
         .uk-form-row.uk-form-icon
           i.uk-icon-key
-          = f.password_field :password, autocomplete: 'off', placeholder: 'パスワード'
+          = f.password_field :password, autocomplete: 'off', placeholder: 'Password'
         .uk-form-row
           = f.label :remember_me
           = f.check_box :remember_me
@@ -23,5 +23,3 @@
           .uk-button-group
             button.uk-button.uk-button-primary type="submit"
               = fa_icon 'sign-in', text: 'Sing In'
-            = link_to new_user_registration_path, class: 'uk-button uk-button-success'
-              = fa_icon 'sign-up', text: 'Sign Up'
