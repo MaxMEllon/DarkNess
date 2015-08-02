@@ -9,12 +9,12 @@ html
     = csrf_meta_tags
 
 body
-  .loading-container = image_tag('loading.gif)
+  .loading-container = image_tag('loading.gif')
   .uk-modal
 
   nav.uk-navbar.uk-navbar-attached
     .uk-container.uk-container-center
-      = link_to root_path, class: 'uk-navbar-brand'
+      = link_to '#', class: 'uk-navbar-brand'
         span.brand.bold DarkNess
 
       ul.uk-navbar-nav.uk-hidden-small
