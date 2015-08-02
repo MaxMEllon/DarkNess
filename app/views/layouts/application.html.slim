@@ -14,12 +14,12 @@ body
 
   nav.uk-navbar.uk-navbar-attached
     .uk-container.uk-container-center
-      = link_to '#', class: 'uk-navbar-brand'
+      = link_to root_path, class: 'uk-navbar-brand'
         span.brand.bold DarkNess
 
       ul.uk-navbar-nav.uk-hidden-small
         li.normal-nav
-          = link_to '#'
+          = link_to new_submission_path
             = fa_icon 'cloud-upload', text: 'Upload'
         li.normal-nav
           = link_to '#'
