@@ -9,23 +9,25 @@ html
     = csrf_meta_tags
 
 body
+  .loading-container = image_tag('loading.gif)
   .uk-modal
 
   nav.uk-navbar.uk-navbar-attached
     .uk-container.uk-container-center
       = link_to root_path, class: 'uk-navbar-brand'
-        span.brand.bold weigery
+        span.brand.bold DarkNess
 
       ul.uk-navbar-nav.uk-hidden-small
         li
           = link_to '#'
-            = fa_icon 'user-md', text: '自分の健康状態'
+            = fa_icon 'user-md', text: ''
 
       .uk-navbar-flip.uk-hidden-small
         ul.uk-navbar-nav
           li
-            = link_to new_user_session_path
+            = link_to '#'
               = fa_icon 'sign-in', text: 'ログイン'
+  == yield
 
 - if notice
   javascript:
