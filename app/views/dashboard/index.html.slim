@@ -5,7 +5,9 @@
       .uk-width-large-1-2.center
       .uk-width-large-1-2.center
         = image_tag('logo.png')
-      .uk-width-large-1-2
-      .uk-width-large-1-2 align="center" = link_to 'Sign up', '/users/sign_up', class: 'uk-button-primary uk-button-large'
-      .uk-width-large-1-2
-      .uk-width-large-1-2 align="center" = link_to 'Sign in', '/users/sign_in', class: 'uk-button uk-button-large'
+      - if user_signed_in?
+        .uk-width-large-1-2
+        .uk-width-large-1-2 align="center" = link_to 'Sign up', edit_user_registration_path, class: 'uk-button uk-button-primary uk-button-large'
+        .uk-width-large-1-2
+        .uk-width-large-1-2 align="center" = link_to 'Sign in', new_user_session_path, class: 'uk-button uk-button-large'
+      - else

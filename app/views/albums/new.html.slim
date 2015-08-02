@@ -7,13 +7,14 @@
     /２段目
     .uk-width-large-2-6.center
     .uk-width-large-4-6.left
-      = form_for @album, path: submissions_path do |f|
+      = form_for @album do |f|
         .uk-form-controls
           .uk-placeholder.center#upload-drop
             i.uk-icon-cloud-upload.uk-icon-medium.uk-text-center
             | 　Attach binaries by dropping them here or　
             a.uk-form-file.uk-badge
               | selecting one
+              = token_tag
               input.upload-select type='file' name='album[zip]' id='album_zip'
             .uk-hidden.uk-progress#progressbar
               .uk-progress-bar style='width: 0%;'
@@ -29,7 +30,7 @@ javascript:
       bar         = progressbar.find('.uk-progress-bar'),
       settings    = {
 
-        action: '/',
+        action: '/albums',
         allow : '*.zip',
 
         loadstart: function() {
@@ -48,6 +49,7 @@ javascript:
               progressbar.addClass("uk-hidden");
             }, 3000);
             UIkit.notify({message: 'success', timeout: 3000});
+            $('#upload-drop').next('uploaded')
         }
       };
 
