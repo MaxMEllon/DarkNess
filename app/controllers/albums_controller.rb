@@ -1,8 +1,6 @@
-class AlbumController < ApplicationController
-  def new
-  end
-
+class AlbumsController < ApplicationController
   def create
+    redirect_to root_path
   end
 
   def show
