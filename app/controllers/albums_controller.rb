@@ -5,8 +5,10 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.new
-    @album.zip =  params[:files].to_s
+    upload_file = params[:files]
+    album = {}
+    album[:zip] = upload_file unless upload_file.nil?
+    @album = Album.new(album)
     @album.save!
     redirect_to root_path
   end
