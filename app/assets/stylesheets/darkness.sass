@@ -84,16 +84,49 @@ html, body
   .uk-container
     box-sizing: border-box
     width: 100%
+    img
+      width: 400px
+      height: 165px
+      display: block
+      margin-left: auto
+      margin-right: auto
+
+nav
+  margin-bottom: 20px
+  .uk-navbar-brand
+    margin-right: 20px
+  .uk-navbar-nav
+    li.normal-nav
+      border-left: 1px solid gray
+      &.last-child
+        border-right: 1px solid gray
+
+.uk-block.uk-block-secondary
+  padding: 10px 0px
+
+.uk-placeholder
+  border: 3px dotted gray
+
 #upload-drop
+  margin-bottom: 40px
+  padding: 100px 0px
   i
     font-family: 'FontAwesome'
+
+@media screen and (max-height: 620px)
+  .footer
+    display: none
+
+@media screen and (min-height: 621px)
+  .footer
+    display: block
 
 .footer
   background: rgb(88, 88, 88)
   height: 18%
   position: absolute
   width: 100%
-  min-width: 110px
+  min-height: 150px
   top: 82%
   .uk-container
     margin-top: 30px
@@ -105,7 +138,6 @@ html, body
   width: 100%
 
 h1#page-title
-  margin-top: 30px
   border-bottom: 1px solid rgb(244, 244, 244)
   text-align: left
   color: white

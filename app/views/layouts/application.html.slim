@@ -14,19 +14,41 @@ body
 
   nav.uk-navbar.uk-navbar-attached
     .uk-container.uk-container-center
-      = link_to '#', class: 'uk-navbar-brand'
+      = link_to root_path, class: 'uk-navbar-brand'
         span.brand.bold DarkNess
+        = fa_icon 'fire'
 
       ul.uk-navbar-nav.uk-hidden-small
-        li
-          = link_to '#'
-            = fa_icon 'user-md', text: ''
-
-      .uk-navbar-flip.uk-hidden-small
-        ul.uk-navbar-nav
-          li
+        - if user_signed_in?
+          li.normal-nav
+            = link_to new_album_path
+              = fa_icon 'cloud-upload', text: 'Upload'
+          li.normal-nav
             = link_to '#'
-              = fa_icon 'sign-in', text: 'ログイン'
+              = fa_icon 'smile-o', text: 'Events'
+          li.normal-nav.last-child
+            = link_to '#'
+              = fa_icon 'book', text: 'Albums'
+      - if user_signed_in?
+        .uk-navbar-flip
+          ul.uk-navbar-nav
+            li.uk-parent data-uk-dropdown='' aria-haspopup='true' aria-expanded='false'
+              = link_to '#'
+                = fa_icon 'chevron-down', text: 'Menu'
+              .uk-dropdown.uk-dropdown-navbar
+                ul.uk-nav.uk-nav-navbar
+                  li
+                    = link_to edit_user_registration_path(current_user.id)
+                      = fa_icon 'pencil fw', text: 'Config'
+                  li
+                    = link_to destroy_user_session_path, method: :delete
+                      = fa_icon 'sign-out fw', text: 'Sign out'
+      - else
+        .uk-navbar-flip.uk-hidden-small
+          ul.uk-navbar-nav
+            li
+              = link_to new_user_session_path
+                = fa_icon 'sign-in', text: 'Sign In'
 
   == yield
 
@@ -41,7 +63,14 @@ body
             = link_to 'https://github.com/SLP-KBIT/Attereco-Front/blob/master/LICENSE.txt'
               = fa_icon 'sticky-note', text: 'License'
             br
-            p = 'Copyright (c) MaxMellon'
+            = mail_to 'mozi_kke@excite.co.jp'
+              = fa_icon 'envelope', text: 'E-mail'
+        .uk-width-small-2-3
+          .uk-panel
+        .uk-width-medium-1-2
+          p.left  = 'Powered by Ruby on Rails / Theme by UIkit'
+        .uk-width-medium-1-2
+          p.right = 'Copyright (c) MaxMellon'
 
 - if notice
   javascript:
