@@ -27,7 +27,21 @@ body
           li
             = link_to '#'
               = fa_icon 'sign-in', text: 'ログイン'
+
   == yield
+
+  footer.footer
+    .uk-container.uk-container-center
+      .uk-grid.uk-grid-match data-uk-grid-margin=""
+        .uk-width-small-1-3
+          .uk-panel
+            = link_to 'https://github.com/MaxMEllon/DarkNess'
+              = fa_icon 'github', text: 'Github'
+            br
+            = link_to 'https://github.com/SLP-KBIT/Attereco-Front/blob/master/LICENSE.txt'
+              = fa_icon 'sticky-note', text: 'License'
+            br
+            p = 'Copyright (c) MaxMellon'
 
 - if notice
   javascript:
