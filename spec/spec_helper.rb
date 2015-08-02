@@ -4,7 +4,7 @@ require 'shoulda-matchers'
 require 'capybara/rspec'
 require 'capybara-webkit'
 require 'devise'
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
 CodeClimate::TestReporter.start
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
