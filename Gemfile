@@ -50,3 +50,4 @@ gem 'yaml_db'
 gem 'draper'
 gem 'ransack'
 gem 'select2-rails'
+gem 'rubyzip', require: nil
