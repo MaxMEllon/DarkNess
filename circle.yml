@@ -1,0 +1,8 @@
+test:
+  override:
+    - "bundle exec bin/rubocop_parallel": { parallel: true }
+    - bundle exec rspec --color --format documentation
+machine:
+  ruby:
+    version: 2.2.0
+  timezone: Asia/Tokyo
