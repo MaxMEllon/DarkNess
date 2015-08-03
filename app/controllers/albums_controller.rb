@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
     file = params[:files]
     binary   = file[0].tempfile.read
     filename = file[0].original_filename
-    File.binwrite('public/zip/#{filename}', binary)
+    File.binwrite("public/zip/#{filename}", binary)
     redirect_to root_path
   end
 
