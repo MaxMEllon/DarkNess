@@ -3,22 +3,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :events
 
-  # def update_without_current_password(params, *options)
-  #   params.delete(:current_password)
-  #   params.delete(:password) if params[:password].blank?
-  #   params.delete(:password_confirmation) if params[:password_confirmation].blank?
-  #
-  #   clean_up_passwords
-  #   update_attributes(params, *options)
-  # end
-  #
-  # def self.find_first_by_auth_conditions(warden_conditions)
-  #   conditions = warden_conditions.dup
-  #   login = conditions.delete(:login)
-  #   if login
-  #     find_by('email = :value', value: login)
-  #   else
-  #     find_by(conditions)
-  #   end
-  # end
+  def after_sign_in_path_for(_resource)
+    root_path
+  end
+
+  def after_sign_out_path_for(_resource)
+    root_path
+  end
 end
