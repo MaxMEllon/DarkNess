@@ -25,13 +25,18 @@ module Darkness
 
     config.i18n.default_locale = :ja
 
-    config.generators.template_engine = :slim
-    config.generators.helper          = false
-    config.generators.assets          = false
+    config.generators do |g|
+      g.template_engine = :slim
+      g.helper          = false
+      g.assets          = false
+      g.test_framework  = 'rspec'
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
+
 
     config.git_revision = `git log --abbrev-commit --pretty=oneline | head -1 | cut -d' ' -f1`
     config.autoload_paths += %W(#{config.root}/lib)
-    config.generators.test_framework = 'rspec'
     config.active_record.raise_in_transactional_callbacks = true
+
   end
 end
