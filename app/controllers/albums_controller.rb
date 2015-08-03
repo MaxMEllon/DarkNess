@@ -5,11 +5,10 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    upload_file = params[:files]
-    album = {}
-    album[:zip] = upload_file unless upload_file.nil?
-    @album = Album.new(album)
-    @album.save!
+    file = params[:files]
+    binary   = file[0].tempfile.read
+    filename = file[0].original_filename
+    File.binwrite('public/zip/#{filename}', binary)
     redirect_to root_path
   end
 

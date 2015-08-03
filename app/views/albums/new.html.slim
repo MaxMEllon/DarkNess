@@ -1,11 +1,12 @@
 - @title = 'Submission'
 .uk-container
   .uk-grid.uk-grid-match data-uk-grid-margin=""
-    .uk-width-large-2-6.center
+    .uk-width-large-1-6.center
     .uk-width-large-4-6.left
       h1.left#page-title FileUpload
+    .uk-width-large-1-6.center
     /２段目
-    .uk-width-large-2-6.center
+    .uk-width-large-1-6.center
     .uk-width-large-4-6.left
       = form_for @album do |f|
         .uk-form-controls
@@ -23,14 +24,17 @@
               = fa_icon 'floppy-o', text: 'Submit'
             button.uk-button.uk-button-close
               = fa_icon 'times', text: 'Cancel'
+    .uk-width-large-1-6.center
 javascript:
   $(function(){
-
+    function sleep(time, callback) {
+      setTimeout(callback, time);
+    }
     var progressbar = $("#progressbar"),
       bar         = progressbar.find('.uk-progress-bar'),
       settings    = {
 
-        action: '/albums',
+        action: '#{albums_path}',
         allow : '*.zip',
 
         loadstart: function() {
@@ -45,11 +49,14 @@ javascript:
 
         allcomplete: function(response) {
           bar.css("width", "100%").text("100%");
-            setTimeout(function(){
-              progressbar.addClass("uk-hidden");
-            }, 3000);
-            UIkit.notify({message: 'success', timeout: 3000});
-            $('#upload-drop').next('uploaded')
+          setTimeout(function(){
+            progressbar.addClass("uk-hidden");
+          }, 2000);
+          UIkit.notify({message: 'success', timeout: 1000});
+          $('#upload-drop').text('uploaded');
+          sleep(1000, function() {
+            $(location).attr('href', '#{root_path}')
+          });
         }
       };
 

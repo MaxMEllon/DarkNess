@@ -13,3 +13,5 @@
 /tmp
 /vendor/bundle
 /coverage
+/public/zip/*
+!/public/zip/.keep
