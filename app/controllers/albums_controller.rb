@@ -23,10 +23,4 @@ class AlbumsController < ApplicationController
 
   def destroy
   end
-
-  private
-
-  def album_params
-    params[:album].permit(:zip)
-  end
 end
