@@ -7,13 +7,11 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    begin
-      File.binwrite(@path, @file.tempfile.read)
-    rescue
-      redirect_to new_album_path, alert: 'File Uploadに失敗'
-    else
-      redirect_to root_path
-    end
+    File.binwrite(@path, @file.tempfile.read)
+  rescue
+    redirect_to new_album_path, alert: 'File Uploadに失敗'
+  else
+    redirect_to root_path
   end
 
   def show
