@@ -1,15 +1,19 @@
 class AlbumsController < ApplicationController
   protect_from_forgery expect: [:create]
+  before_action :set_file, only: [:create]
+
   def new
     @album = Album.new
   end
 
   def create
-    file = params[:files]
-    binary   = file[0].tempfile.read
-    filename = file[0].original_filename
-    File.binwrite("public/zip/#{filename}", binary)
-    redirect_to root_path
+    begin
+      File.binwrite(@path, @file.tempfile.read)
+    rescue
+      redirect_to new_album_path, alert: 'File Uploadに失敗'
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -26,7 +30,9 @@ class AlbumsController < ApplicationController
 
   private
 
-  def album_params
-    params[:album].permit(:zip)
+  def set_file
+    return unless params[:files]
+    @file = params[:files][0]
+    @path = Rails.root.join('public', 'zip', @file.original_filename)
   end
 end
