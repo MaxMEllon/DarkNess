@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802165648) do
+ActiveRecord::Schema.define(version: 20150804031355) do
 
   create_table "albums", force: :cascade do |t|
     t.integer  "event_id"
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.binary   "zip"
+    t.string   "zip_path"
   end
 
   create_table "events", force: :cascade do |t|
