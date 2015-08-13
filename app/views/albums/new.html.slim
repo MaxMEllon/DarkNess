@@ -19,11 +19,6 @@
               input.upload-select type='file' name='album[zip]' id='album_zip'
             .uk-hidden.uk-progress#progressbar
               .uk-progress-bar style='width: 0%;'
-          .uk-button-group
-            button.uk-button.uk-button-primary
-              = fa_icon 'floppy-o', text: 'Submit'
-            button.uk-button.uk-button-close
-              = fa_icon 'times', text: 'Cancel'
     .uk-width-large-1-6.center
 javascript:
   $(function(){
@@ -38,17 +33,17 @@ javascript:
         allow : '*.zip',
 
         loadstart: function() {
-          bar.css("width", "0%").text("0%");
+          bar.css("width", "0%").text("");
             progressbar.removeClass("uk-hidden");
         },
 
         progress: function(percent) {
           percent = Math.ceil(percent);
-            bar.css("width", percent+"%").text(percent+"%");
+            bar.css("width", percent+"%").text("");
         },
 
         allcomplete: function(response) {
-          bar.css("width", "100%").text("100%");
+          bar.css("width", "100%").text("");
           setTimeout(function(){
             progressbar.addClass("uk-hidden");
           }, 2000);
