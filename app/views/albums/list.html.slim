@@ -4,5 +4,11 @@
     .uk-width-large-1-3
     .uk-width-large-2-3
       - @albums.each do |album|
-        .uk-panel
+        .uk-width-small-1-2
+          .uk-panel-box.album
+            .uk-badge
+              = link_to album.title, album_path(album.id)
+            .page = '全' +  album.page_num.to_s + 'ページ'
+            .date = album.updated_at.strftime('%Y年 %m月 %d日 %X')
+
 
