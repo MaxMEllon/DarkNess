@@ -45,6 +45,6 @@ class AlbumsController < ApplicationController
     return unless params[:files]
     @file = params[:files][0]
     @path = Rails.root.join('public', 'zip', @file.original_filename)
-    @title = @file.original_filename.gsub(".zip", "")
+    @title = @file.original_filename.gsub('.zip', '')
   end
 end
