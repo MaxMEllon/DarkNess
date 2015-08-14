@@ -3,11 +3,11 @@ class Album < ActiveRecord::Base
   belongs_to :event
 
   def unzip_and_bind_photos
-    directory = Rails.root.join('public', self.id.to_s)
+    directory = Rails.root.join('public', id.to_s)
     system("mkdir #{directory}")
-    system("unzip #{self.zip_path} -d #{directory}")
+    system("unzip #{zip_path} -d #{directory}")
     Dir.glob("#{directory}/*.{jpeg,png,jpg}").sort.each_with_index do |img_path, count|
-      Photo.create(album_id: self.id, img_path: img_path, page: count + 1)
+      Photo.create(album_id: id, img_path: img_path, page: count + 1)
     end
   end
 end
