@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804031355) do
+ActiveRecord::Schema.define(version: 20150814154826) do
 
   create_table "albums", force: :cascade do |t|
     t.integer  "event_id"
@@ -30,11 +30,10 @@ ActiveRecord::Schema.define(version: 20150804031355) do
 
   create_table "photos", force: :cascade do |t|
     t.integer  "album_id"
-    t.integer  "page",             null: false
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "upload_file_name"
-    t.binary   "upload_file"
+    t.integer  "page",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "img_path"
   end
 
   create_table "users", force: :cascade do |t|
