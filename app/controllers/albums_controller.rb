@@ -11,12 +11,13 @@ class AlbumsController < ApplicationController
   rescue
     redirect_to new_album_path, alert: 'File Uploadに失敗'
   else
-    @album = Album.create(zip_path: @path)
+    @album = Album.create(zip_path: @path, title: @title)
     @album.unzip_and_bind_photos
     redirect_to root_path
   end
 
-  def show
+  def list
+    @albums = Album.all
   end
 
   def edit
@@ -34,5 +35,6 @@ class AlbumsController < ApplicationController
     return unless params[:files]
     @file = params[:files][0]
     @path = Rails.root.join('public', 'zip', @file.original_filename)
+    @title = @file.original_filename.gsub(".zip", "")
   end
 end
