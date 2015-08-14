@@ -12,6 +12,7 @@ class AlbumsController < ApplicationController
     redirect_to new_album_path, alert: 'File Uploadに失敗'
   else
     @album = Album.create(zip_path: @path)
+    @album.unzip_and_bind_photos
     redirect_to root_path
   end
 
