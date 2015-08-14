@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   protect_from_forgery expect: [:create]
   before_action :set_file, only: [:create]
+  before_action :set_album, only: [:show]
 
   def new
     @album = Album.new
@@ -14,6 +15,10 @@ class AlbumsController < ApplicationController
     @album = Album.create(zip_path: @path, title: @title)
     @album.unzip_and_bind_photos
     redirect_to root_path
+  end
+
+  def show
+    @photos = @album.photos
   end
 
   def list
@@ -30,6 +35,11 @@ class AlbumsController < ApplicationController
   end
 
   private
+
+  def set_album
+    return unless params[:id]
+    @album = Album.find(params[:id])
+  end
 
   def set_file
     return unless params[:files]
