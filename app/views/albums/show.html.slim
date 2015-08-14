@@ -1,5 +1,4 @@
 - @title = @album.title
 - @photos.each do |photo|
-  - path = photo.img_path.gsub(Rails.root.join('public').to_s, '')
   .center
-    img.photos src="#{path}"
+    img.photos src="#{photo.img_path}"
