@@ -1,17 +1,17 @@
 - @title = 'Submission'
 .uk-container
   .uk-grid.uk-grid-match data-uk-grid-margin=""
-    .uk-width-large-1-6.center
-    .uk-width-large-4-6.left
+    .uk-width-large-1-6
+    .uk-width-large-5-6
       h1.left#page-title FileUpload
-    .uk-width-large-1-6.center
+      br
     /２段目
-    .uk-width-large-1-6.center
-    .uk-width-large-4-6.left
-      = form_for @album do |f|
+    .uk-width-large-1-6
+    .uk-width-large-5-6
+      = form_for @album, html: { class: 'uk-form uk-form-stacked' } do |f|
         .uk-form-controls
           .uk-placeholder.center#upload-drop
-            i.uk-icon-cloud-upload.uk-icon-medium.uk-text-center
+            i.uk-icon-cloud-upload.uk-icon-large.uk-text-center
             | 　Attach binaries by dropping them here or　
             a.uk-form-file.uk-badge
               | selecting one
@@ -19,7 +19,6 @@
               input.upload-select type='file' name='album[zip]' id='album_zip'
             .uk-hidden.uk-progress#progressbar
               .uk-progress-bar style='width: 0%;'
-    .uk-width-large-1-6.center
 javascript:
   $(function(){
     function sleep(time, callback) {
