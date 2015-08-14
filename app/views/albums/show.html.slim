@@ -1,4 +1,5 @@
 - @title = @album.title
-- @photos.each do |photo|
-  .center
-    img.photos src="#{photo.img_path}"
+.uk-container
+  - @photos.each do |photo|
+    .center
+      img.photos src="#{photo.img_path}"
