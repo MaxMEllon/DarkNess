@@ -12,6 +12,7 @@ class Album < ActiveRecord::Base
       Photo.create(album_id: id, img_path: path, page: count + 1)
     end
     update(page_num: Photo.last.page)
+    system("rm -rf #{zip_path}")
   end
 
   def remove_photos
