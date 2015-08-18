@@ -5,16 +5,15 @@
       h1.left#page-title = 'Albums'
     .uk-width-large-1-3
     - @albums.each_with_index do |album, count|
-      - if count % 2 == 0
+      - unless count.odd?
         .uk-width-large-2-3
       .uk-width-medium-1-2
         .uk-panel-box.album
           .uk-badge
             = link_to album.title, album_path(album.id)
-          - num = album.page_num.nil? ? '0' : album.page_num.to_s
-          .date = album.updated_at.strftime('%Y年%m月%d日 %X')
+          .date = album.updated_at.strftime('%Y年%m月%d日 %H:%M')
           br
-          .page = '全' + num + 'ページ'
+          .page = '全' << album.page_num.to_s << 'ページ'
           .uk-button-group
             = link_to album_path(album.id), method: :delete, class: 'uk-button-mini uk-button-danger'
               = fa_icon 'trash', text: 'delete'
