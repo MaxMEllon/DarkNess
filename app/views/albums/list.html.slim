@@ -11,7 +11,7 @@
         .uk-panel-box.album
           .uk-badge
             = link_to album.title, album_path(album.id)
-          .date = album.updated_at.strftime('%Y年%m月%d日 %X')
+          .date = album.updated_at.strftime('%Y年%m月%d日 %H:%M')
           br
           .page = '全' << album.page_num.to_s << 'ページ'
           .uk-button-group
