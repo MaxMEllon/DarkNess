@@ -1,6 +1,7 @@
 class Album < ActiveRecord::Base
   has_many :photos
   belongs_to :event
+  before_destroy :remove_photos
 
   def unzip_and_bind_photos
     directory = Rails.root.join('public', 'images', id.to_s)
@@ -11,5 +12,10 @@ class Album < ActiveRecord::Base
       Photo.create(album_id: id, img_path: path, page: count + 1)
     end
     update(page_num: Photo.last.page)
+  end
+
+  def remove_photos
+    directory = Rails.root.join('public', 'images', id.to_s)
+    system("rm -rf #{directory}")
   end
 end
