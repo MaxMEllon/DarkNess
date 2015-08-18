@@ -27,7 +27,7 @@ body
               = link_to '#'
                 = fa_icon 'smile-o', text: 'Events'
             li.normal-nav.last-child
-              = link_to '/albums'
+              = link_to album_list_path
                 = fa_icon 'book', text: 'Albums'
         - if user_signed_in?
           .uk-navbar-flip
