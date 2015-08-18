@@ -18,5 +18,5 @@
           .uk-button-group
             = link_to album_path(album.id), method: :delete, class: 'uk-button-mini uk-button-danger'
               = fa_icon 'trash', text: 'delete'
-            button.uk-button-mini.uk-button-success
-              = 'edit'
+            = link_to '#', class: 'uk-button-mini uk-button-success'
+              = fa_icon 'pencil', text: 'edit'

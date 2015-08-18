@@ -17,42 +17,32 @@
               input.upload-select type='file' name='album[zip]' id='album_zip'
             .uk-hidden.uk-progress#progressbar
               .uk-progress-bar style='width: 0%;'
-javascript:
-  $(function(){
-    function sleep(time, callback) {
-      setTimeout(callback, time);
-    }
-    var progressbar = $("#progressbar"),
-      bar         = progressbar.find('.uk-progress-bar'),
-      settings    = {
+coffee:
+  $ ->
+    progressbar = $('#progressbar')
+    bar = progressbar.find('.uk-progress-bar')
+    settings =
+      action: "/albums"
+      allow: '*.zip'
+      loadstart: ->
+        bar.css('width', '0%').text ''
+        progressbar.removeClass 'uk-hidden'
+      progress: (percent) ->
+        percent = Math.ceil(percent)
+        bar.css('width', percent + '%').text ''
+      allcomplete: (response) ->
+        bar.css('width', '100%').text ''
+        setTimeout (->
+          progressbar.addClass 'uk-hidden'
+        ), 2000
+        UIkit.notify
+          message: 'success'
+          timeout: 1000
+        $('#upload-drop').text 'uploaded'
+        sleep 1000, ->
+          $(location).attr 'href', "/albums"
+    select = UIkit.uploadSelect($('input.upload-select'), settings)
+    drop = UIkit.uploadDrop($('#upload-drop'), settings)
 
-        action: '#{album_list_path}',
-        allow : '*.zip',
-
-        loadstart: function() {
-          bar.css("width", "0%").text("");
-            progressbar.removeClass("uk-hidden");
-        },
-
-        progress: function(percent) {
-          percent = Math.ceil(percent);
-            bar.css("width", percent+"%").text("");
-        },
-
-        allcomplete: function(response) {
-          bar.css("width", "100%").text("");
-          setTimeout(function(){
-            progressbar.addClass("uk-hidden");
-          }, 2000);
-          UIkit.notify({message: 'success', timeout: 1000});
-          $('#upload-drop').text('uploaded');
-          sleep(1000, function() {
-            $(location).attr('href', '#{root_path}')
-          });
-        }
-      };
-
-      var select = UIkit.uploadSelect($("input.upload-select"), settings),
-            drop = UIkit.uploadDrop($("#upload-drop"), settings);
-  });
-
+    sleep = (time, callback) ->
+      setTimeout callback, time

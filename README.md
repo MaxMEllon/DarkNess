@@ -12,4 +12,7 @@
 ## テーブル構成
 ![Table](http://plantuml.com:80/plantuml/png/PO-n3i8m34JtV8ML4Qa3QpS6TXRcAhHMQobDeiG5gOX_nxWI17MnuikxizrxLmfS2sPu6W0QMg30yiBPaM-XSAOmIf-4UyGyVAMNCRsQptSChEv5OhfVH70pxl6JlospuYZ62cTYZzN4bLAN74_xYCiKEMh4t_-d7N6B4rQFiaSBJMx07kosgD5QoxgGqLhBEkGD)
 
+## 仮デプロイ先
+
+[heroku](https://enigmatic-oasis-8575.herokuapp.com/)
 
