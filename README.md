@@ -10,6 +10,6 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MaxMEllon/DarkNess?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## テーブル構成
-![Table](http://www.plantuml.com:80/plantuml/png/NOyn3u8m58Jt_efBHnC6LpO7TnTdKg32IqffseU96l-xyX2ihdVVNUuQPrB2ETc8XmAeBK6UrLCrOXolrhCuqnkfLXlmPh0b4aVotKOVN3qDGjivb-5CxBuySATGeYPlucrBd_gHHqa7mtq61zFPjMWARZHjTQ6vxbFmerP_o-IQtciKiO3UwUMIMexbkenNouLSbral)
+![Table](http://plantuml.com:80/plantuml/png/PO-n3i8m34JtV8ML4Qa3QpS6TXRcAhHMQobDeiG5gOX_nxWI17MnuikxizrxLmfS2sPu6W0QMg30yiBPaM-XSAOmIf-4UyGyVAMNCRsQptSChEv5OhfVH70pxl6JlospuYZ62cTYZzN4bLAN74_xYCiKEMh4t_-d7N6B4rQFiaSBJMx07kosgD5QoxgGqLhBEkGD)
 
 
