@@ -11,6 +11,11 @@ RSpec.describe AlbumsController, type: :controller do
         get :new
         expect(response).to have_http_status(:success)
       end
+      it 'return http success' do
+        sign_in @user
+        get :list
+        expect(response).to have_http_status(:success)
+      end
     end
   end
 end
