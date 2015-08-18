@@ -9,11 +9,12 @@ class AlbumsController < ApplicationController
 
   def create
     File.binwrite(@path, @file.tempfile.read)
-  rescue
-    redirect_to new_album_path, alert: 'File Uploadに失敗'
-  else
     @album = Album.create(zip_path: @path, title: @title)
     @album.unzip_and_bind_photos
+  rescue
+    @album.destroy unless @album.nil?
+    redirect_to new_album_path, alert: 'File Uploadに失敗'
+  else
     redirect_to root_path
   end
 
