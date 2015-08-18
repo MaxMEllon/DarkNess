@@ -1,4 +1,6 @@
-![darkness](./public/logo.png)
+<p align="center">
+  <img src="./public/logo.png">
+</p>
 - - -
 [![CircleCI](https://img.shields.io/circleci/project/MaxMEllon/DarkNess.svg?style=flat-square)](https://circleci.com/gh/MaxMEllon/DarkNess)
 [![CodeClimate](https://img.shields.io/codeclimate/github/MaxMEllon/DarkNess.svg?style=flat-square)](https://codeclimate.com/github/MaxMEllon/DarkNess)
