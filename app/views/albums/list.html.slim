@@ -16,7 +16,7 @@
           br
           .page = '全' + num + 'ページ'
           .uk-button-group
-            button.uk-button-mini.uk-button-danger
-              = 'delete'
+            = link_to album_path(album.id), method: :delete, class: 'uk-button-mini uk-button-danger'
+              = fa_icon 'trash', text: 'delete'
             button.uk-button-mini.uk-button-success
               = 'edit'
