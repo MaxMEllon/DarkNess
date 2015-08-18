@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
   protect_from_forgery expect: [:create]
   before_action :set_file, only: [:create]
-  before_action :set_album, only: [:show]
+  before_action :set_album, only: [:show, :update, :destroy]
 
   def new
     @album = Album.new
@@ -32,6 +32,9 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
+    @album.destroy
+    @albums = Album.all
+    render :list
   end
 
   private

@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   root to: 'dashboard#index'
 
-  resources :albums, only: [:new, :create, :show]
-  get 'albums', to: 'albums#list'
+  resources :albums, only: [:new, :create, :show, :destroy]
+  get 'albums', to: 'albums#list', as: 'album_list'
 end

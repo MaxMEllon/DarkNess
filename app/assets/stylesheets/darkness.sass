@@ -61,7 +61,7 @@ mark
 .uk-placeholder
   padding: 8px 6px
 
-.uk-thumbnav 
+.uk-thumbnav
   .uk-thumbnail
     width: 100%
 
@@ -75,11 +75,18 @@ html, body
   background: rgb(34, 34, 34)
   color: rgb(255, 255, 255)
   width: 100%
+  height: 100%
+  margin: 0
   display: block
   min-width: 480px
+  #container
+    height: auto !important
+    height: 100%
+    min-height: 100%
+    position: relative
   .uk-container
-    box-sizing: border-box
     width: 100%
+    box-sizing: border-box
   .logo
     top: 50%
     left: 50%
@@ -99,22 +106,40 @@ nav
       &.last-child
         border-right: 1px solid gray
 
+.uk-width-large-1-1
+  width: 100%
+
 .uk-panel-box.album
   background: rgb(250, 250, 250)
   margin: 10px
-  padding: 20px
+  padding: 15px
+  padding-bottom: 30px
+  min-width: 400px
+  height: 80px
   .uk-badge
-    padding: 5px
+    padding: 3px
     a
       margin: 0px 15px
       color: white
-      font-size: 20px
+      font-size: 15px
   .page
     float: right
     margin: 0px
+    margin-top: 3px
+    margin-right: 5px
   .date
     float: right
     margin: 0px
+    margin-top: 3px
+    margin-right: 5px
+  .uk-button-group
+    float: left
+    margin-right: 15px
+    margin-top: 3px
+    button.uk-button-mini
+      width: 60px
+      border: none
+      float: right
 
 img.photos
   width: 600px
@@ -137,15 +162,15 @@ img.photos
 
 @media screen and (min-height: 621px)
   .footer
-    display: none
+    display: block
 
 .footer
   background: rgb(88, 88, 88)
+  bottom: -150px
   height: 150px
   position: absolute
   width: 100%
   min-height: 150px
-  top: 82%
   .uk-container
     margin-top: 30px
     font-size: 14px

@@ -1,13 +1,11 @@
 - @title = 'Submission'
-.uk-container
+.uk-container.uk-container-center
   .uk-grid.uk-grid-match data-uk-grid-margin=""
-    .uk-width-large-1-6
-    .uk-width-large-5-6
+    .uk-width-large-1-1.center
       h1.left#page-title FileUpload
       br
     /２段目
-    .uk-width-large-1-6
-    .uk-width-large-5-6
+    .uk-width-large-1-1.center
       = form_for @album, html: { class: 'uk-form uk-form-stacked' } do |f|
         .uk-form-controls
           .uk-placeholder.center#upload-drop
@@ -28,7 +26,7 @@ javascript:
       bar         = progressbar.find('.uk-progress-bar'),
       settings    = {
 
-        action: '#{albums_path}',
+        action: '#{album_list_path}',
         allow : '*.zip',
 
         loadstart: function() {
