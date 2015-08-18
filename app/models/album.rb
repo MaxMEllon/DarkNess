@@ -3,23 +3,34 @@ class Album < ActiveRecord::Base
   belongs_to :event
   before_destroy :remove_photos
 
-  def directory_path
-    Rails.root.join('public', 'images', id.to_s)
-  end
-
-  def unzip_and_bind_photos
-    `mkdir -p #{directory_path}`
-    `unzip #{zip_path} -d #{directory_path}`
+  def unzip_and_build_photos
+    mkdir
+    unzip
     build_photos
     update_page_num
-    `rm -rf #{zip_path}`
+  end
+
+  private
+
+  def directory_path
+    Rails.root.join('public', 'images', id.to_s)
   end
 
   def remove_photos
     `rm -rf #{directory_path}`
   end
 
-  private
+  def mkdir
+    `mkdir -p #{directory_path}`
+  end
+
+  def unzip
+    `unzip #{zip_path} -d #{directory_path}`
+  end
+
+  def remove_zip
+    `rm -rf #{zip_path}`
+  end
 
   def build_photos
     Dir.glob("#{directory_path}/**/*.{jpeg,png,jpg}").sort.each_with_index do |raw_path, count|

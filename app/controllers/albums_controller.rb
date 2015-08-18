@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
   def create
     File.binwrite(@path, @file.tempfile.read)
     @album = Album.create(zip_path: @path, title: @title)
-    @album.unzip_and_bind_photos
+    @album.unzip_and_build_photos
   rescue
     @album.destroy unless @album.nil?
     redirect_to new_album_path, alert: 'File Uploadに失敗'
@@ -23,7 +23,7 @@ class AlbumsController < ApplicationController
   end
 
   def list
-    @albums = Album.all
+    @albums = Album.all.sort.reverse
   end
 
   def edit
