@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/MaxMEllon/DarkNess.png?label=ready&title=Ready)](https://waffle.io/MaxMEllon/DarkNess)
 <p align="center">
   <img src="./public/logo.png">
 </p>
