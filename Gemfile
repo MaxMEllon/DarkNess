@@ -18,13 +18,16 @@ gem 'unicorn-worker-killer'
 gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
-  gem 'quiet_assets'
-  gem 'pry-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-rubocop'
   gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'quiet_assets'
+  gem 'spring'
 end
 
 group :test do
