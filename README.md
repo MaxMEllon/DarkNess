@@ -12,6 +12,18 @@
 [![Stories in Ready](https://badge.waffle.io/MaxMEllon/DarkNess.png?label=ready&title=Ready)](https://waffle.io/MaxMEllon/DarkNess)
 [![security](https://hakiri.io/github/MaxMEllon/DarkNess/master.svg)](https://hakiri.io/github/MaxMEllon/DarkNess/master)
 
+## Demo
+
+### Upload
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MaxMEllon/DarkNess/demo/upload.gif">
+</p>
+
+### Show
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MaxMEllon/DarkNess/demo/show.gif">
+</p>
+
 ## テーブル構成
 ![Table](http://plantuml.com:80/plantuml/png/PO-n3i8m34JtV8ML4Qa3QpS6TXRcAhHMQobDeiG5gOX_nxWI17MnuikxizrxLmfS2sPu6W0QMg30yiBPaM-XSAOmIf-4UyGyVAMNCRsQptSChEv5OhfVH70pxl6JlospuYZ62cTYZzN4bLAN74_xYCiKEMh4t_-d7N6B4rQFiaSBJMx07kosgD5QoxgGqLhBEkGD)
 
