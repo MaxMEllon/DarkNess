@@ -2,5 +2,7 @@
 .uk-container.uk-container-center
   - @photos.each do |photo|
     .center
-      img.photos src="#{photo.img_path}"
-  = paginate(@photos)
+      .uk-slidenav-position data-uk-slideshow=""
+        ul.uk-slideshow
+          img.photos src="#{photo.img_path}"
+      = paginate(@photos)
