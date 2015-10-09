@@ -3,3 +3,4 @@
   - @photos.each do |photo|
     .center
       img.photos src="#{photo.img_path}"
+  = paginate(@photos)

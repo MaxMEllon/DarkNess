@@ -2,7 +2,6 @@ class Album < ActiveRecord::Base
   has_many :photos
   belongs_to :event
   before_destroy :remove_photos
-  after_create :remove_zip
 
   def unzip_and_build_photos
     mkdir
