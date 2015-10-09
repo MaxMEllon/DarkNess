@@ -15,11 +15,15 @@ class AlbumsController < ApplicationController
     @album.destroy unless @album.nil?
     redirect_to new_album_path, alert: 'File Uploadに失敗'
   else
-    redirect_to root_path
+    if Album.last.nil?
+      redirect_to new_album_path, alert: 'zipの解凍に失敗'
+    else
+      redirect_to root_path
+    end
   end
 
   def show
-    @photos = @album.photos
+    @photos = @album.photos.page(params[:page]).per(1)
   end
 
   def list
