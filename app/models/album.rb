@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: albums
+#
+#  id         :integer          not null, primary key
+#  event_id   :integer
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  zip_path   :string
+#  page_num   :integer
+#
+
 class Album < ActiveRecord::Base
   has_many :photos
   belongs_to :event
