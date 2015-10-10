@@ -26,6 +26,7 @@ group :development, :test do
   gem 'guard-rubocop'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'hirb'
   gem 'quiet_assets'
   gem 'spring'
 end
