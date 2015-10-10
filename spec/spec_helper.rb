@@ -17,12 +17,14 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers
-  config.include Capybara::DSL
 
-  config.before(:all) do
-    Capybara.default_selector = :css
-    Capybara.javascript_driver = :webkit
+  require 'capybara/poltergeist'
+  Capybara.default_driver = :poltergeist
+  Capybara.javascript_driver = :poltergeist
+  Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new(app, js_errors: false)
   end
+  config.include Capybara::DSL
 end
 
 Capybara::Webkit.configure do |config|
