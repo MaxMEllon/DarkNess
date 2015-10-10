@@ -38,6 +38,8 @@ group :test do
   gem 'brakeman'
   gem 'capybara'
   gem 'capybara-webkit'
+  gem 'poltergeist'
+  gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: nil
 end
 
