@@ -22,10 +22,9 @@ RSpec.configure do |config|
   Capybara.default_driver = :poltergeist
   Capybara.javascript_driver = :poltergeist
   Capybara.register_driver :poltergeist do |app|
-    Capybara::Poltergeist::Driver.new(app, {js_errors: false})
+    Capybara::Poltergeist::Driver.new(app, js_errors: false)
   end
   config.include Capybara::DSL
-
 end
 
 Capybara::Webkit.configure do |config|
