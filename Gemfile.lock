@@ -162,6 +162,7 @@ GEM
     haml (4.0.6)
       tilt
     highline (1.6.21)
+    hirb (0.7.3)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -404,6 +405,7 @@ DEPENDENCIES
   guard
   guard-rspec
   guard-rubocop
+  hirb
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
